@@ -1,0 +1,7 @@
+entity,metric,value,timestamp
+LangGraph,stars,1000,2026-07-28
+LangGraph,stars,1200,2026-07-29
+LangGraph,stars,1500,2026-07-30
+LangGraph,stars,1800,2026-07-31
+LangGraph,stars,2500,2026-08-01
+LangGraph,forks,100,2026-08-01

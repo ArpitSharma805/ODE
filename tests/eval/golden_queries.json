@@ -1,0 +1,65 @@
+{
+  "intent_cases": [
+    {
+      "query": "What should backend engineers learn in 2026?",
+      "intent": "Career Development",
+      "topics": ["backend engineering", "system design", "databases", "distributed systems", "kubernetes", "go"]
+    },
+    {
+      "query": "Should I learn Go or Rust?",
+      "intent": "Skill Learning",
+      "topics": ["go"]
+    },
+    {
+      "query": "Compare Python with TypeScript for backend",
+      "intent": "Technology Evaluation",
+      "topics": ["python", "typescript"]
+    }
+  ],
+  "concept_cases": [
+    {
+      "name": "Go aliases",
+      "raw": ["Go", "go programming", "golang", "golang backend", "go ecosystem"],
+      "expected_groups": [
+        ["Go", "go programming", "golang", "golang backend", "go ecosystem"]
+      ]
+    },
+    {
+      "name": "Kubernetes case-insensitive",
+      "raw": ["kubernetes", "container orchestration", "Kubernetes"],
+      "expected_groups": [
+        ["kubernetes", "Kubernetes"],
+        ["container orchestration"]
+      ]
+    },
+    {
+      "name": "Distinct skills",
+      "raw": ["Rust", "React", "system design", "distributed systems"],
+      "expected_groups": [
+        ["Rust"],
+        ["React"],
+        ["system design"],
+        ["distributed systems"]
+      ]
+    }
+  ],
+  "retrieval_cases": [
+    {
+      "query": "What should backend engineers learn?",
+      "intent": { "intent": "Skill Learning", "primary_technology": "Backend Engineering", "topics": ["backend engineering", "system design"] },
+      "primary": "backend engineering",
+      "aliases": ["backend engineering"]
+    },
+    {
+      "query": "Should I learn Go or Rust?",
+      "intent": { "intent": "Skill Learning", "primary_technology": "Go", "topics": ["go"] },
+      "primary": "go",
+      "aliases": ["go"]
+    }
+  ],
+  "report_cases": [
+    { "topic": "System Design", "score": 0.85 },
+    { "topic": "Go", "score": 0.72 },
+    { "topic": "Rust", "score": 0.68 }
+  ]
+}

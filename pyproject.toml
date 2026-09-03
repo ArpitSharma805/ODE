@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ode"
+version = "0.1.0"
+description = "Opportunity Discovery Engine"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+dependencies = [
+    "pandas>=2.0.0",
+    "numpy>=1.26.0",
+    "matplotlib>=3.8.0",
+    "fpdf2>=2.7.0",
+    "mcp>=1.6.0,<2.0",
+    "fastapi[standard]>=0.141.0",
+    "langgraph>=0.2.0,<0.3.0",
+    "langchain-core>=0.2.0,<0.4.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-playwright>=0.4.0",
+    "playwright>=0.41.0",
+    "mypy>=1.8.0",
+    "pre-commit>=3.7.0",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.mypy]
+python_version = "3.12"
+mypy_path = ["src"]
+ignore_missing_imports = true
+warn_return_any = false
+disallow_untyped_defs = false
+exclude = [".venv", "node_modules", "__pycache__", ".git"]

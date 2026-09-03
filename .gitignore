@@ -1,0 +1,63 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.venv/
+venv/
+.env
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Testing
+.pytest_cache/
+.mypy_cache/
+.coverage/
+htmlcov/
+
+# Runtime / generated assets
+data/ode.sqlite
+data/ode.sqlite-*
+data/streamlit.log
+.playwright-mcp/
+screenshots/
+reports/*.png
+reports/*.pdf
+reports/*.md
+
+# Devin local MCP secrets
+.devin/mcp_config.local.json
+
+# IDE
+.vscode/
+.idea/
+
+# Lock files
+package-lock.json
+skills-lock.json
+
+# Generated skill symlinks
+.agents/
+.devin/skills/
+
+# Editable install metadata
+*.egg-info/
+
+# Temporary files
+*.log
+*.tmp
+*.bak
+*.swp
+*~
+.DS_Store
+profile_pipeline.py
+ARCHITECTURE_SIMPLE.md
+PIPELINE_PERFORMANCE_ANALYSIS.md
+data/*.backup
+*.sqlite
+*.sqlite.backup
+data/*.backup
+*.sqlite
+*.sqlite.backup

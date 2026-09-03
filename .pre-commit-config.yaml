@@ -1,0 +1,76 @@
+# Pre-commit hooks configuration for ODE project
+# Run: pre-commit install to install hooks
+# Run: pre-commit run --all-files to run all hooks manually
+
+repos:
+  # General hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+        exclude: ^(ode\.db$|\.env$)
+      - id: end-of-file-fixer
+        exclude: ^(ode\.db$|\.env$)
+      - id: check-yaml
+        args: ['--unsafe']
+      - id: check-added-large-files
+        args: ['--maxkb=1000']
+      - id: check-merge-conflict
+      - id: check-toml
+      - id: check-json
+      - id: debug-statements
+        language_version: python3
+
+  # Custom hooks for specific project checks using project verification commands
+  - repo: local
+    hooks:
+      # Pre-commit: Quick Python type check on changed files
+      - id: python-type-check
+        name: Python Type Check (MyPy)
+        entry: bash -c 'PYTHONPATH=src .venv/bin/python -m mypy "$@"'
+        language: system
+        files: ^src/ode/.*\.py$
+        pass_filenames: true
+
+      # Pre-commit: Quick TypeScript lint on changed files
+      - id: typescript-lint
+        name: TypeScript Lint (ESLint)
+        entry: bash -c 'cd apps/web && npm run lint'
+        language: system
+        files: ^(apps/web/.*\.(ts|tsx|js|jsx))$
+        pass_filenames: false
+
+      # Pre-push: Full Python test suite (from AGENTS.md)
+      - id: python-tests
+        name: Python Tests (Pytest)
+        entry: bash -c 'PYTHONPATH=src OLLAMA_TIMEOUT=0.001 .venv/bin/python -m pytest tests/test_scoring.py tests/test_db.py tests/test_health.py tests/test_source_normalization.py tests/test_concepts.py tests/eval/test_eval.py tests/test_research_pipeline.py tests/test_synthesis.py tests/test_analysis.py tests/test_issue_fixes.py tests/test_ui_fixes.py tests/test_investigations.py tests/test_architecture.py -q'
+        language: system
+        files: ^src/ode/.*\.py$
+        pass_filenames: false
+        stages: [pre-push]
+
+      # Pre-push: Full Next.js build check (from AGENTS.md)
+      - id: nextjs-build
+        name: Next.js Build Check
+        entry: bash -c 'cd apps/web && npm run build'
+        language: system
+        files: ^(apps/web/.*\.(ts|tsx|js|jsx))$
+        pass_filenames: false
+        stages: [pre-push]
+
+      # Pre-push: Python type check on all files (from AGENTS.md)
+      - id: python-type-check-all
+        name: Python Type Check All (MyPy)
+        entry: bash -c 'PYTHONPATH=src .venv/bin/python -m mypy src/ode/analysis_models.py src/ode/agents/signal_analyst.py src/ode/agents/opportunity_analyst.py src/ode/agents/orchestrator.py src/ode/agents/report_agent.py src/ode/signals.py src/ode/evidence.py src/ode/research.py src/ode/mcp/research_sources.py src/ode/mcp/tavily.py src/ode/search_noise.py src/ode/clarify.py src/ode/synthesis.py src/ode/llm.py src/ode/technology_discovery.py src/ode/api/main.py src/ode/investigations.py src/ode/db.py'
+        language: system
+        files: ^src/ode/.*\.py$
+        pass_filenames: false
+        stages: [pre-push]
+
+      # Pre-commit: Web lint check (from AGENTS.md)
+      - id: web-lint
+        name: Web Lint Check
+        entry: bash -c 'cd apps/web && npm run lint'
+        language: system
+        files: ^(apps/web/.*\.(ts|tsx|js|jsx))$
+        pass_filenames: false

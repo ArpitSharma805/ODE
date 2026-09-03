@@ -1,0 +1,46 @@
+{
+  "name": "opportunity-discovery-engine",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "postCreateCommand": "bash ${containerWorkspaceFolder}/.devcontainer/scripts/postCreateCommand.sh",
+  "containerEnv": {
+    "DISABLE_AUTOUPDATER": "1",
+    "NVIDIA_VISIBLE_DEVICES": "all",
+    "NVIDIA_DRIVER_CAPABILITIES": "compute,utility"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "ms-playwright.playwright",
+        "eamodio.gitlens",
+        "github.vscode-github-actions",
+        "usernamehw.errorlens",
+        "ms-azuretools.vscode-docker",
+        "vscode-icons-team.vscode-icons",
+        "mtxr.sqltools",
+        "ms-python.python",
+        "ms-python.vscode-pylance"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": "explicit"
+        },
+        "editor.tabSize": 2,
+        "files.eol": "\n"
+      }
+    }
+  },
+  "remoteUser": "vscode",
+  "containerUser": "vscode",
+  "updateRemoteUserUID": false,
+  "runArgs": [
+    "--userns=keep-id:uid=1000,gid=1000",
+    "--device",
+    "nvidia.com/gpu=all"
+  ]
+}

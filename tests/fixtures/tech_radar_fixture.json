@@ -1,0 +1,82 @@
+[
+  {
+    "objectID": "1",
+    "title": "OpenAI releases new AI model for enterprise",
+    "url": "https://example.com/openai-enterprise-model",
+    "points": 120,
+    "num_comments": 45,
+    "created_at_i": 1786930001
+  },
+  {
+    "objectID": "2",
+    "title": "OpenAI cuts prices for AI APIs",
+    "url": "https://example.com/openai-api-prices",
+    "points": 95,
+    "num_comments": 30,
+    "created_at_i": 1786929000
+  },
+  {
+    "objectID": "3",
+    "title": "Rust 1.80 brings faster compile times",
+    "url": "https://example.com/rust-180",
+    "points": 80,
+    "num_comments": 22,
+    "created_at_i": 1786928000
+  },
+  {
+    "objectID": "4",
+    "title": "Rust adoption grows in cloud infrastructure",
+    "url": "https://example.com/rust-cloud-adoption",
+    "points": 55,
+    "num_comments": 18,
+    "created_at_i": 1786927000
+  },
+  {
+    "objectID": "5",
+    "title": "Kubernetes 1.31 adds native AI inferencing",
+    "url": "https://example.com/kubernetes-ai-inferencing",
+    "points": 70,
+    "num_comments": 25,
+    "created_at_i": 1786926000
+  },
+  {
+    "objectID": "6",
+    "title": "Kubernetes operators embrace AI workloads",
+    "url": "https://example.com/kubernetes-ai-workloads",
+    "points": 45,
+    "num_comments": 12,
+    "created_at_i": 1786925000
+  },
+  {
+    "objectID": "7",
+    "title": "Nvidia unveils new AI chips for data centers",
+    "url": "https://example.com/nvidia-ai-chips",
+    "points": 130,
+    "num_comments": 60,
+    "created_at_i": 1786924000
+  },
+  {
+    "objectID": "8",
+    "title": "Nvidia AI chips power next-gen Kubernetes clusters",
+    "url": "https://example.com/nvidia-kubernetes",
+    "points": 60,
+    "num_comments": 20,
+    "created_at_i": 1786923000
+  },
+  {
+    "objectID": "9",
+    "title": "Google Gemini updates challenge OpenAI",
+    "url": "https://example.com/google-gemini",
+    "points": 50,
+    "num_comments": 15,
+    "created_at_i": 1786922000
+  },
+  {
+    "objectID": "10",
+    "title": "Google DeepMind advances AI safety research",
+    "url": "https://example.com/google-deepmind-safety",
+    "points": 40,
+    "num_comments": 10,
+    "created_at_i": 1786921000
+  }
+]
